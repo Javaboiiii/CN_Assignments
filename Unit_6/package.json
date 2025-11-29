@@ -1,0 +1,10 @@
+{
+  "name": "bookstore-monorepo",
+  "version": "1.0.0",
+  "description": "Online Bookstore - Full Stack Application",
+  "scripts": {
+    "start:backend": "cd 6b && npm start",
+    "start:frontend": "cd 6a && npm run dev",
+    "install:all": "cd 6a && npm install && cd ../6b && npm install"
+  }
+}

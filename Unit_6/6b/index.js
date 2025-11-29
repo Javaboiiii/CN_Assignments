@@ -1,10 +1,12 @@
 require('dotenv').config()
-const express = require('express') 
+const express = require('express')
+const cors = require('cors')
 const connect = require("./middlewares/connection") 
 const { addUser, verifyUser } = require("./controllers/user_controllers") 
 const { getBook, saveBook } = require("./controllers/book_controllers")
 
-const app = express() 
+const app = express()
+app.use(cors())
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
 connect;
@@ -35,8 +37,8 @@ app.post("/book", async (req, res) => {
 })
 
 app.get("/books", async (req, res) => {
-    const body = req.body
-    const response = await getBook(body)
+    const username = req.query.username
+    const response = await getBook({ username })
     res.send(response) 
 })
 
