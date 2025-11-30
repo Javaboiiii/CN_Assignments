@@ -1,0 +1,6 @@
+# Sample file for testing TCP file transfer
+This is a test file created for demonstrating the TCP file transfer program.
+
+You can transfer this file from client to server to test the functionality.
+
+The file transfer program supports both text and binary files.
