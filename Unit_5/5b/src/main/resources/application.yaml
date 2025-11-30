@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: lab5
+  datasource:
+    url: jdbc:mysql://localhost:3306/cnt_lab
+    username: root
+    password: l9e4i5a5xp
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    jpa:
+      hibernate:
+        ddl-auto: update
+      show-sql: true
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQLDialect
+
