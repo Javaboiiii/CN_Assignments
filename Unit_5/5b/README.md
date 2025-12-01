@@ -1,53 +1,77 @@
 # Lab 5 - Spring Boot REST API Application
 
-A Spring Boot REST API application for managing subjects and results with MySQL database integration and Spring Security.
+A Spring Boot REST API application for managing subjects and results with PostgreSQL database integration and Spring Security.
 
-## 📋 Table of Contents
-- [Technologies Used](#technologies-used)
-- [Prerequisites](#prerequisites)
-- [Database Setup](#database-setup)
-- [Installation & Setup](#installation--setup)
-- [Running the Application](#running-the-application)
-- [API Endpoints](#api-endpoints)
-- [Data Models](#data-models)
-- [Security Configuration](#security-configuration)
+## 📋 Quick Start for Exam
+
+### Step 1: Clone the Repository
+```bash
+git clone https://github.com/Javaboiiii/CN_Assignments.git
+cd CN_Assignments/Unit_5/5b
+```
+
+### Step 2: Update Database Configuration
+1. Copy `application-example.yaml` to `application.yml` in the root directory
+2. Update the database credentials in `application.yml`:
+   ```yaml
+   spring:
+     datasource:
+       url: jdbc:postgresql://your-db-host/your-db-name?sslmode=require
+       username: your_username
+       password: your_password
+   ```
+
+### Step 3: Run the Application
+**Option A - Using Maven Wrapper (No Maven installation needed):**
+```bash
+# Windows
+.\mvnw.cmd spring-boot:run
+
+# Linux/Mac
+./mvnw spring-boot:run
+```
+
+**Option B - If Maven is installed:**
+```bash
+mvn spring-boot:run
+```
+
+**Option C - Run as JAR:**
+```bash
+# Build the JAR
+mvn clean package -DskipTests
+
+# Run the JAR
+java -jar target/lab5-0.0.1-SNAPSHOT.jar
+```
+
+### Step 4: Access the Application
+- **URL**: http://localhost:8080
+- **Security**: Check console output for generated password (or use configured credentials)
+
+---
 
 ## 🛠️ Technologies Used
 
-- **Java**: 17
+- **Java**: 17 (works with Java 21)
 - **Spring Boot**: 4.0.0
 - **Spring Data JPA**: For database operations
-- **Spring Security**: For security configuration
+- **Spring Security**: For authentication/authorization
 - **Spring Web MVC**: For REST API
-- **MySQL**: Database
+- **PostgreSQL**: Database (also supports MySQL)
 - **Lombok**: To reduce boilerplate code
 - **Maven**: Build tool
 
 ## ✅ Prerequisites
 
-Before running this application, ensure you have:
-
 - Java 17 or higher installed
-- Maven installed (or use the included Maven wrapper)
-- MySQL Server installed and running
+- PostgreSQL database (or MySQL)
+- Maven (optional - Maven wrapper included)
 - Git (optional, for cloning)
 
 ## 🗄️ Database Setup
 
-1. **Start MySQL Server**
-
-2. **Create Database**
-   ```sql
-   CREATE DATABASE lab5_db;
-   ```
-
-3. **Update Database Configuration**
-   
-   Edit `src/main/resources/application.yaml` and add your database credentials:
-   ```yaml
-   spring:
-     application:
-       name: lab5
+The application uses **PostgreSQL** by default. Tables are created automatically using Hibernate DDL.
      datasource:
        url: jdbc:mysql://localhost:3306/lab5_db
        username: your_mysql_username
